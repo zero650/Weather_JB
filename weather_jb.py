@@ -22,30 +22,32 @@ panel.place(x=60, y=520)
 
 # Dates
 dt = datetime.datetime.now()
-date = Label(root, text=dt.strftime('%A--'), bg='white', font=("bold", 15))
+date = Label(root, text=dt.strftime('%A--'), bg='white', font=("bold", 15), fg='black')
 date.place(x=5, y=130)
-month = Label(root, text=dt.strftime('%m %B'), bg='white', font=("bold", 15))
+month = Label(root, text=dt.strftime('%m %B'), bg='white', font=("bold", 15), fg='black')
 month.place(x=100, y=130)
 
 # Time
 hour = Label(root, text=dt.strftime('%I : %M %p'),
-			bg='white', font=("bold", 15))
+			bg='white', font=("bold", 15), fg='black')
 hour.place(x=10, y=160)
 
 # Theme for the respective time the application is used
-if int((dt.strftime('%I'))) >= 8 & int((dt.strftime('%I'))) <= 5:
-	img = ImageTk.PhotoImage(Image.open('moon.png'))
-	panel = Label(root, image=img)
-	panel.place(x=210, y=200)
+if int(dt.strftime('%I')) >= 8 and int(dt.strftime('%I')) <= 17:
+    img = ImageTk.PhotoImage(Image.open('moon.png'))
+elif int(dt.strftime('%I')) > 5 and int(dt.strftime('%I')) < 18:
+    img = ImageTk.PhotoImage(Image.open('sun.png'))
 else:
-	img = ImageTk.PhotoImage(Image.open('sun.png'))
-	panel = Label(root, image=img)
-	panel.place(x=210, y=200)
+    img = None
+panel = Label(root, image=img)
+if img is not None:
+    panel.image = img
+    panel.place(x=210, y=200)
 
 
 # City Search
 city_name = StringVar()
-city_entry = Entry(root, textvariable=city_name, width=45)
+city_entry = Entry(root, textvariable=city_name, width=39)
 city_entry.grid(row=1, column=0, ipady=10, stick=W+E+N+S)
 
 # API Key
@@ -111,7 +113,7 @@ lable_lat.place(x=95, y=95)
 # Current Temperature
 
 lable_temp = Label(root, text="...", width=0, bg='white',
-				font=("Helvetica", 110), fg='black')
+				font=("Helvetica", 70), fg='black')
 lable_temp.place(x=18, y=220)
 
 # Other temperature details
@@ -145,7 +147,7 @@ min_temp.place(x=128, y=460)
 
 # Note
 note = Label(root, text="All temperatures in degree celsius",
-			bg='white', font=("italic", 10))
+			bg='white', font=("italic", 10), fg='black')
 note.place(x=95, y=495)
 
 
