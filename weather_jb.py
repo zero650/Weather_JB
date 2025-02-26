@@ -55,7 +55,7 @@ def city_name():
 
 	# API Call
 	api_request = requests.get("https://api.openweathermap.org/data/2.5/weather?q="
-							+ city_entry.get() + "&units=metric&appid="+api_key)
+							+ city_entry.get() + "&units=metric&appid="+api_key + "&units=imperial")
 
 	api = json.loads(api_request.content)
 
