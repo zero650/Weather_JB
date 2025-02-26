@@ -17,7 +17,7 @@ root['background'] = "white"
 # Image
 new = ImageTk.PhotoImage(Image.open('logo.png'))
 panel = Label(root, image=new)
-panel.place(x=0, y=520)
+panel.place(x=60, y=520)
 
 
 # Dates
@@ -55,7 +55,7 @@ def city_name():
 
 	# API Call
 	api_request = requests.get("https://api.openweathermap.org/data/2.5/weather?q="
-							+ city_entry.get() + "&units=metric&appid="+api_key + "&units=imperial")
+							+ city_entry.get() + "&units=imperial&appid="+api_key)
 
 	api = json.loads(api_request.content)
 
@@ -94,18 +94,18 @@ city_nameButton.grid(row=1, column=1, padx=5, stick=W+E+N+S)
 
 # Country Names and Coordinates
 lable_citi = Label(root, text="...", width=0, 
-				bg='white', font=("bold", 15))
+				bg='white', font=("bold", 15), fg='black')
 lable_citi.place(x=10, y=63)
 
 lable_country = Label(root, text="...", width=0, 
-					bg='white', font=("bold", 15))
+					bg='white', font=("bold", 15), fg='black')
 lable_country.place(x=135, y=63)
 
 lable_lon = Label(root, text="...", width=0,
-				bg='white', font=("Helvetica", 15))
+				bg='white', font=("Helvetica", 15), fg='black')
 lable_lon.place(x=25, y=95)
 lable_lat = Label(root, text="...", width=0,
-				bg='white', font=("Helvetica", 15))
+				bg='white', font=("Helvetica", 15), fg='black')
 lable_lat.place(x=95, y=95)
 
 # Current Temperature
@@ -117,29 +117,29 @@ lable_temp.place(x=18, y=220)
 # Other temperature details
 
 humi = Label(root, text="Humidity: ", width=0, 
-			bg='white', font=("bold", 15))
+			bg='white', font=("bold", 15), fg='black')
 humi.place(x=3, y=400)
 
 lable_humidity = Label(root, text="...", width=0,
-					bg='white', font=("bold", 15))
+					bg='white', font=("bold", 15), fg='black')
 lable_humidity.place(x=107, y=400)
 
 
 maxi = Label(root, text="Max. Temp.: ", width=0, 
-			bg='white', font=("bold", 15))
+			bg='white', font=("bold", 15), fg='black')
 maxi.place(x=3, y=430)
 
 max_temp = Label(root, text="...", width=0, 
-				bg='white', font=("bold", 15))
+				bg='white', font=("bold", 15), fg='black')
 max_temp.place(x=128, y=430)
 
 
 mini = Label(root, text="Min. Temp.: ", width=0, 
-			bg='white', font=("bold", 15))
+			bg='white', font=("bold", 15), fg='black')
 mini.place(x=3, y=460)
 
 min_temp = Label(root, text="...", width=0, 
-				bg='white', font=("bold", 15))
+				bg='white', font=("bold", 15), fg='black')
 min_temp.place(x=128, y=460)
 
 
