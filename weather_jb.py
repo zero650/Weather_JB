@@ -48,6 +48,8 @@ city_name = StringVar()
 city_entry = Entry(root, textvariable=city_name, width=45)
 city_entry.grid(row=1, column=0, ipady=10, stick=W+E+N+S)
 
+# API Key
+api_key = "856bffa74ac537598ca57d43095db687"
 
 def city_name():
 
